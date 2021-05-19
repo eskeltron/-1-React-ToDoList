@@ -72,10 +72,8 @@ const Work = () => {
 
     const handleChangeOrderBy = (e, a = null) => {
         const orderBystr = e?.target?.value ?? orderBy;
-        console.log(orderBystr);
         setOrderBy(orderBystr);
         const orderedTasks = a ?? Array.from(tasks);
-        console.log(orderedTasks);
 
         orderedTasks.sort((a, b) => {
             let result;
@@ -117,6 +115,9 @@ const Work = () => {
 
     return (
         <Container>
+            <h3>
+                Amount tasks to do: <b>{tasks.length}</b>
+            </h3>
             <MyButton
                 handleOnClick={handleShowForm}
                 text={!showForm ? "Show form" : "Hide form"}
