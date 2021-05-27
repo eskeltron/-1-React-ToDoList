@@ -35,11 +35,7 @@ const Work = () => {
         title = title.value.trim();
         description = description.value.trim();
         priority = priority.value;
-        if (
-            title.length === 0 ||
-            description.length === 0 ||
-            priority.length === 0
-        ) {
+        if (title.length === 0 || description.length === 0 || priority.length === 0) {
             return;
         }
 
@@ -78,11 +74,9 @@ const Work = () => {
         orderedTasks.sort((a, b) => {
             let result;
             if (orderByOptions[orderBystr] === "Priority - ASC") {
-                result =
-                    PRIORITIESVALUES[b.priority] - PRIORITIESVALUES[a.priority];
+                result = PRIORITIESVALUES[b.priority] - PRIORITIESVALUES[a.priority];
             } else if (orderByOptions[orderBystr] === "Priority - DESC") {
-                result =
-                    PRIORITIESVALUES[a.priority] - PRIORITIESVALUES[b.priority];
+                result = PRIORITIESVALUES[a.priority] - PRIORITIESVALUES[b.priority];
             } else if (orderByOptions[orderBystr] === "Number - ASC") {
                 result = b.id - a.id;
             } else if (orderByOptions[orderBystr] === "Number - DESC") {
@@ -98,14 +92,6 @@ const Work = () => {
         setTask(orderedTasks);
     };
 
-    for (const v of PRIORITIES.values()) {
-        priorityOptions.push(
-            <option key={v} value={v}>
-                {v}
-            </option>
-        );
-    }
-
     const columnStyle = {
         backgroundColor: "#f2a8eb",
         margin: "0.5%",
@@ -118,10 +104,7 @@ const Work = () => {
             <h3>
                 Amount tasks to do: <b>{tasks.length}</b>
             </h3>
-            <MyButton
-                handleOnClick={handleShowForm}
-                text={!showForm ? "Show form" : "Hide form"}
-            />
+            <MyButton handleOnClick={handleShowForm} text={!showForm ? "Show form" : "Hide form"} />
             <Row style={{ flexWrap: "nowrap", alignItems: "flex-start" }}>
                 {showForm && (
                     <Col
@@ -130,37 +113,10 @@ const Work = () => {
                         style={columnStyle}
                     >
                         <h3>Tasks</h3>
-                        <Form onSubmit={createTask}>
-                            <Form.Group>
-                                <Form.Label as="b">Title</Form.Label>
-                                <Form.Control placeholder="Title"></Form.Control>
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label as="b">Description</Form.Label>
-                                <Form.Control
-                                    as="textarea"
-                                    placeholder="Description about the task"
-                                ></Form.Control>
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label as="b"> Priority</Form.Label>
-                                <Form.Control
-                                    as="select"
-                                    defaultValue={PRIORITIES[0]}
-                                >
-                                    {priorityOptions}
-                                </Form.Control>
-                            </Form.Group>
-                            <MyButton text="Add task" type="submit" />
-                        </Form>
                     </Col>
                 )}
                 {tasks.length > 0 && (
-                    <Col
-                        md={showForm ? 6 : 12}
-                        xs={showForm ? 12 : 24}
-                        style={columnStyle}
-                    >
+                    <Col md={showForm ? 6 : 12} xs={showForm ? 12 : 24} style={columnStyle}>
                         <Row>
                             <Col md={6} xs={12}>
                                 <h3>Tasks to do</h3>

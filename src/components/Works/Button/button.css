@@ -1,6 +1,0 @@
-.focus-style:focus {
-    box-shadow: 0 0 0 0.2rem rgb(193 38 255 / 50%);
-}
-.focus-style:not(:disabled):not(.disabled):active:focus {
-    box-shadow: 0 0 0 0.2rem rgb(193 38 255 / 50%);
-}

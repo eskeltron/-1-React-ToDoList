@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Row, Col, ListGroup } from "react-bootstrap";
 
-const Items = ({ tasks }) => {
+const ShowTasks = ({ tasks }) => {
+    const [orderBy, setOrderBy] = useState("");
     const items = [];
 
     for (const [i, v] of tasks.entries()) {
@@ -45,4 +47,4 @@ const Items = ({ tasks }) => {
     );
 };
 
-export default Items;
+export default ShowTasks;

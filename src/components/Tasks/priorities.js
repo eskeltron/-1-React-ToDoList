@@ -6,17 +6,8 @@ const PRIORITIESVALUES = {
     secondary: 1,
 };
 
-const orderByOptions = {
-    priorityASC: "Priority - ASC",
-    priorityDESC: "Priority - DESC",
-    numberASC: "Number - ASC",
-    numberDESC: "Number - DESC",
-};
-
 const _PRIORITIES = {
     PRIORITIES,
     PRIORITIESVALUES,
-    orderByOptions,
 };
-
 export default _PRIORITIES;
